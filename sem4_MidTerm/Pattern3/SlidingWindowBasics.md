@@ -229,3 +229,172 @@ sum = sum - arr[i-k]
 sum = sum + arr[i]
 
 Window slide ho rahi hai.
+
+
+
+**********************************************************************************************
+
+
+1️⃣ Kab Sliding Window use hoti hai
+
+Agar question me ye words aaye to 90% chance sliding window lagegi:
+
+subarray
+
+substring
+
+contiguous elements
+
+maximum / minimum length
+
+sum / count
+
+Example:
+
+Longest substring
+Minimum subarray length
+Maximum sum subarray
+
+
+
+2️⃣ Fixed Window vs Variable Window
+Fixed Window
+
+Window size fix hoti hai.
+
+Example
+
+Subarray size = k
+
+Example array:
+
+1 2 3 4 5
+
+Window size = 3
+
+[1 2 3]
+  [2 3 4]
+    [3 4 5]
+
+Problems:
+
+Maximum sum subarray size k
+
+Average of subarray size k
+
+Time complexity
+
+O(n)
+
+
+
+
+Variable Window
+
+Window size change hoti rehti hai.
+
+Example:
+
+Longest substring without repeating characters
+Minimum subarray sum
+
+Example window
+
+2 3 1 2
+
+phir shrink
+
+3 1 2
+
+phir expand
+
+3 1 2 4
+
+
+3️⃣ Sliding Window ka basic template
+
+Jai Karan ye template yaad kar lo, almost har question isi se solve hota hai.
+
+int left = 0;
+int sum = 0;
+
+for(int right = 0; right < nums.length; right++){
+
+    sum += nums[right];   // window expand
+
+    while(condition){
+
+        sum -= nums[left];  // window shrink
+        left++;
+    }
+}
+
+
+4 . Expand vs Shrink concept
+Expand window
+sum += nums[right]
+
+Window bada ho rha hai.
+
+Example
+
+2
+2 3
+2 3 1
+2 3 1 2
+
+
+Shrink window
+sum -= nums[left]
+left++
+
+Window chhoti ho rhi hai.
+
+Example
+
+2 3 1 2
+ 3 1 2
+ 1 2
+
+ 
+5️⃣ Sliding Window ka intuition trick
+
+Jai Karan ye bahut important trick hai.
+
+Agar question me ho:
+
+contiguous elements
+
+ya
+
+subarray
+substring
+
+to nested loop mat lagao.
+
+Instead socho:
+
+kya window ko slide kar sakte hain ?
+
+Agar haan → Sliding Window
+
+
+6️⃣ Normal vs Sliding Window
+Normal approach
+for(i)
+   for(j)
+
+Time Complexity
+
+O(n²)
+Sliding Window
+single loop
+
+Time Complexity
+
+O(n)
+
+Isliye interviews me bahut use hoti hai.
+
+
+
